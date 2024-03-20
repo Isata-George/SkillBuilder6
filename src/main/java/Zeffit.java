@@ -9,16 +9,19 @@
  */
 public class Zeffit
 {
-    // TODO: add final variables
+    private final int start = 0;
+    private final int oneHit = 1;
+    private final int twoHit = 2;
+    private final int threeHit = 3;
+    private final int fourHit = 4;
 
-    // TODO: add instance variable(s)
-
+    private int state;
     /**
      * Constructor for objects of class Zeffit
      */
     public Zeffit()
     {
-        // TODO: initialize instance variable(s)
+        state = start;
     }
 
     /**
@@ -27,7 +30,15 @@ public class Zeffit
      */
     public void takesHit()
     {
-        // TODO: replace this line with your code
+        if (state == start){
+            state = oneHit;
+        } else if(state == oneHit){
+            state = twoHit;
+        } else if (state == twoHit){
+            state = threeHit;
+        } else {
+            state = fourHit;
+        }
     }
 
     /**
@@ -37,7 +48,7 @@ public class Zeffit
      */
     public boolean isHitFree()
     {
-        // TODO: replace this line with your code
+        return state == start;
     }
 
     /**
@@ -47,7 +58,7 @@ public class Zeffit
      */
     public boolean isGreen()
     {
-        // TODO: replace this line with your code
+        return state == oneHit;
     }
 
     /**
@@ -57,7 +68,7 @@ public class Zeffit
      */
     public boolean isBlue()
     {
-        // TODO: replace this line with your code
+        return state == twoHit;
     }
 
     /**
@@ -67,7 +78,7 @@ public class Zeffit
      */
     public boolean isRed()
     {
-        // TODO: replace this line with your code
+        return state == threeHit;
     }
 
     /**
@@ -77,7 +88,7 @@ public class Zeffit
      */
     public boolean isDead()
     {
-        // TODO: replace this line with your code
+        return state == fourHit;
     }
 }
 
