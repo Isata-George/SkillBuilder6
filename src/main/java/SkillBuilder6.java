@@ -17,25 +17,25 @@ public class SkillBuilder6 {
     private static final String findT = "tT";
     private static final String findY = "yY";
 
-    public static String findTYPattern(String s)
-    {
+    public static String findTYPattern(String s) {
         int currentState = startState;
         int first = 0;
         int last = 0;
-        for(int index = 0; index < s.length() - 1; index++){
-            char ch = s.charAt(index);
-            if(findT.indexOf(ch) > -1){
-                first = index;
-                currentState = isT;
-                first = index;
+        for (int index = 0; index < s.length(); index++) {
+            char t = s.charAt(index);
+            if (findT.indexOf(t) > -1) {
             }
-            if(currentState == isT){
-                if(findY.indexOf(ch) > findT.indexOf(ch)){
-                    last = index;
+
+            for (int i = 0; i < s.length(); i++){
+                char y = s.charAt(i);
+                if (findY.lastIndexOf(y) > -1) {
                     currentState = isY;
+                    last = index;
                 }
+
             }
         }
-        return s.substring(first, last);
+
+            return s.substring(first, last);
     }
 }
